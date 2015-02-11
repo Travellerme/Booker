@@ -1,0 +1,25 @@
+Ens\BookerBundle\Entity\Booked:
+    type: entity
+    repositoryClass: Ens\BookerBundle\Repository\BookedRepository
+    table: Booked
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+    fields:
+        bookedTime:
+            type: datetime
+
+    manyToOne:
+        booked:
+            targetEntity: Rooms
+            inversedBy: booked
+            joinColumn:
+                name: roomId
+                referencedColumnName: id
+        users:
+            targetEntity: Employees
+            inversedBy: bookedRoom
+            joinColumn:
+                name: userId
+                referencedColumnName: id

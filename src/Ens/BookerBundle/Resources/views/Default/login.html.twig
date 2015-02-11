@@ -1,0 +1,29 @@
+<!--{% if error %}
+    <div>{{ error.message }}</div>
+{% endif %}
+ 
+<form action="{{ path('login_check') }}" method="post">
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="_username" value="{{ last_username }}" />
+ 
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="_password" />
+ 
+    <button type="submit">login</button>
+</form>-->
+
+<h2>Welcome!</h2>
+{% if error %}
+    <p>{{ error.message }}</p>
+{% endif %}
+<p>Please enter your login and password to continue</p>
+<form action="{{ path('login_check') }}" method="post">
+	<div class="popup-form__row">
+		<label for="popup-form_login">Login</label>
+		<input type="text" name="_username" id="popup-form_login" value="{{ last_username }}" />
+	</div>
+	<div class="popup-form__row">
+		<label for="popup-form_password">Password</label>
+		<input type="password" name="_password" id="popup-form_password" />
+	</div>
+</form>

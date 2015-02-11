@@ -1,0 +1,22 @@
+Ens\BookerBundle\Entity\Employees:
+    type: entity
+    table: Employees
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+    fields:
+        username:
+            type: string
+            length: 255
+        password:
+            type: string
+            length: 255
+        createdDate:
+            type: datetime
+    oneToMany:
+        bookedRoom:
+            targetEntity: Booked
+            mappedBy: bookedRoom
+    lifecycleCallbacks:
+        prePersist: [ setCreatedDateValue ]

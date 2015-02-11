@@ -1,0 +1,16 @@
+Ens\BookerBundle\Entity\Rooms:
+    type: entity
+    repositoryClass: Ens\BookerBundle\Repository\RoomsRepository
+    table: Rooms
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+    fields:
+        name:
+            type: string
+            length: 255
+    oneToMany:
+        booked:
+            targetEntity: Booked
+            mappedBy: booked

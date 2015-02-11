@@ -1,0 +1,17 @@
+ens_booker_ens_booked:
+    resource: "@EnsBookerBundle/Resources/config/routing/booked.yml"
+    prefix:   /ens_booked
+
+ens_booker_homepage:
+    path:     /
+    defaults: { _controller: "EnsBookerBundle:Booked:index" }
+
+login:
+    pattern:   /login
+    defaults:  { _controller: EnsBookerBundle:Default:login }
+
+login_check:
+    pattern:   /login_check
+
+logout:
+    pattern:   /logout

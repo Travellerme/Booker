@@ -1,0 +1,13 @@
+ens_booked:
+    path:     /
+    defaults: { _controller: "EnsBookerBundle:Booked:index" }
+
+ens_booked_create:
+    path:     /create
+    defaults: { _controller: "EnsBookerBundle:Booked:create" }
+    requirements: { _method: post }
+
+ens_booked_delete:
+    path:     /delete
+    defaults: { _controller: "EnsBookerBundle:Booked:delete" }
+    requirements: { _method: post|delete }

@@ -1,0 +1,4 @@
+services:
+#    ens_booker.example:
+#        class: Ens\BookerBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]

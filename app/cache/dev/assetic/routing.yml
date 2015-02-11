@@ -1,0 +1,5 @@
+_assetic:
+    resource: .
+    type: assetic
+_app:
+    resource: 'F:\xampp\htdocs\Booker\app/config/routing_dev.yml'

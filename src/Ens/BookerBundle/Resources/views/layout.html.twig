@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            {% block title %}
+                Booker
+            {% endblock %}
+        </title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        {% block stylesheets %}
+           <!-- <link rel="stylesheet" href="{{ asset('bundles/ensbooker/css/main.css') }}" type="text/css" media="all" />-->
+            <link rel="stylesheet" href="{{ asset('bundles/ensbooker/css/all.css') }}" type="text/css" media="all" />
+            <link rel="stylesheet" href="{{ asset('bundles/ensbooker/css/demos.css') }}" type="text/css" media="all" />
+            <link rel="stylesheet" href="{{ asset('bundles/ensbooker/css/popup.css') }}" type="text/css" media="all" />
+            <link rel="stylesheet" href="{{ asset('bundles/ensbooker/css/table.css') }}" type="text/css" media="all" />
+        {% endblock %}
+        {% block javascripts %}
+			<script type="text/javascript" src="{{ asset('bundles/ensbooker/js/jquery-1.11.0.js') }}"></script>
+			<script type="text/javascript" src="{{ asset('bundles/ensbooker/js/ui/core.js') }}"></script>
+			<script type="text/javascript" src="{{ asset('bundles/ensbooker/js/ui/widget.js') }}"></script>
+			<script type="text/javascript" src="{{ asset('bundles/ensbooker/js/ui/datepicker.js') }}"></script>
+			<script>
+				var PATH = {
+					homepage: "{{ path('ens_booker_homepage') }}",
+					asset: "{{ asset('bundles/ensbooker') }}",
+				}
+			
+				
+				
+			</script>
+			<script type="text/javascript" src="{{ asset('bundles/ensbooker/js/manager.js') }}"></script>
+			
+		{% endblock %}
+        
+    </head>
+    <body>
+       <div id="container">
+            <div id="header">
+                <div class="content">
+				
+                  
+                </div>
+            </div>
+ 
+           <div id="content">
+               {% for flashMessage in app.session.flashbag.get('notice') %}
+                   <div class="flash_notice">
+                       {{ flashMessage }}
+                   </div>
+               {% endfor %}
+ 
+               {% for flashMessage in app.session.flashbag.get('error') %}
+                   <div class="flash_error">
+                       {{ flashMessage }}
+                   </div>
+               {% endfor %}
+ 
+               <div class="content">
+                   {% block content %}
+                   {% endblock %}
+               </div>
+           </div>
+ 
+           <div id="footer">
+               <div class="content">
+					{% if app.user %}
+						 {% block user_block %}
+							Logget in as:{{ app.user.username }} <a href="{{ path('logout') }}">Logout</a>
+						{% endblock %}
+					{% endif %}
+                  
+               </div>
+           </div>
+       </div>
+	  
+	   
+		
+   </body>
+</html>

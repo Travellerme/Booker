@@ -1,0 +1,39 @@
+<table class="records_list yui tableItems">
+	<thead>
+		<tr class='ui-bar-b'>
+			<th sortRoom="1">Room</th>
+			{% for i in minAvailable..(maxAvailable-1) %}
+				<th>
+					{% if i != maxAvailable %}
+						{{i}}.00-{{i+1}}.00
+					{% endif %}	
+				</th>
+			{% endfor %}
+		</tr>
+	</thead>
+	<tbody>
+	
+	{% for room in rooms %}
+		<tr roomId='{{room.id}}'>
+			
+			<td class='history-table-column' roomName='{{ room.name }}'>{{ room.name }}</td>
+			{% for i in minAvailable..(maxAvailable-1) %}
+				
+					
+						{% if i in room.booked|keys %}
+							<td class='history-table-column booked' hour='{{i}}'>
+								{{room.booked[i].name}}
+							</td>
+						{% else %}
+							<td class='history-table-column free' hour='{{i}}'>
+								Free
+							</td>
+						{% endif %}	
+					
+			
+			{% endfor %}
+ 
+		</tr>
+	{% endfor %}
+	</tbody>
+</table>
